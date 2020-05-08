@@ -102,7 +102,8 @@ for(var d = 0; d < scale.length; d++) {
                .attr("stroke", "black")
                .attr("fill", colour(de));
   var text = canvas.append("text")
-             .attr("font-family", "Nunito").attr("x", x)
+             .attr("font-family", "Nunito")
+             .attr("x", x)
              .attr("y", y+17)
              //.attr("font-family", "nunito-extralight")
              .attr("font-size", 60)
