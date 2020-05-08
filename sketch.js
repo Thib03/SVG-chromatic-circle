@@ -1,4 +1,4 @@
-var scale = [[1,0],[2,1],[2,3],[3,4],[4,6],[6,8],[7,10]];
+var scale = [[1,0],[2,2],[3,4],[4,5],[5,7],[6,9],[7,10]];
 
 var PI = 3.14159265359;
 
@@ -47,7 +47,7 @@ function colour(d) {
   }
 }
 
-var canvas = d3.select("body")
+var canvas = d3.select(".container")
              .append("svg")
              .attr("width", canvasWidth)
              .attr("height", canvasWidth);
@@ -79,7 +79,8 @@ for(var n = 0; n < 12; n++) {
 for(var d = 0; d < scale.length; d++) {
   var de = scale[d][0];
   var nd = scale[d][1];
-  var al = alt(ndt(nd-scale[0][1])-degToNdt(de-scale[0][0]+1));
+  var dd = deg(de-scale[0][0]+1);
+  var al = alt(ndt(nd-scale[0][1])-degToNdt(dd));
   var te = '';
   switch(al) {
     case -3: te += '---';break;
@@ -100,7 +101,7 @@ for(var d = 0; d < scale.length; d++) {
                .attr("r", littleRadius)
                .attr("stroke-width", ep)
                .attr("stroke", "black")
-               .attr("fill", colour(de));
+               .attr("fill", colour(dd));
   var text = canvas.append("text")
              .attr("font-family", "Nunito")
              .attr("x", x)
